@@ -1,0 +1,94 @@
+<%- include('../_partial/_header'); -%>
+
+<h1 align="center"><b>Шифр "Атбаш"</b></h1>
+<br>
+<div align="justify" style = "text-indent: 25px;font-size: 20px;">
+    <p><i>Атбаш </i> — простой шифр подстановки для алфавитного письма. Правило шифрования состоит в замене <b>n</b>-й буквы алфавита буквой с номером <b>m - n + 1</b>, где <b>m</b> — число букв в алфавите.</p>
+</div>
+
+<div class="body1">
+    <div id="header1" >Открытый текст</div>
+  
+    <select id="lang" name="lang" style="top:317px;">
+        <option value="rus">Русский</option>
+        <option value="eng">Английский</option>
+    </select>
+
+    <textarea id="open-text" placeholder="Введите открытый текст"></textarea>
+
+    <div><button class="circle" id="swap-wrap" ><img id ="imgCircle" alt="" src="/images/swap_vertical_circle-24px.svg" style="vertical-align:middle" /></button></div>
+    <div id="header2">Шифротекст</div>
+    <textarea id="cipher-text" placeholder="Введите шифротекст текст"></textarea>
+    <div class="box-with-actions">
+    <section class="actions">
+  
+        <div id="headerForWord">Кодовое слово</div>
+        <div><input id="wordK"/></div>
+        <button class="butArea" id="encrypt-btn_wtf">Зашифровать</button>
+        <button class="butArea" id="decrypt-btn_wtf">Расшифровать</button>
+  
+    </section>
+  
+    <button onclick="Calculate()" class="butArea" id="showfreq" onmousedown="viewDiv()">Частотный анализ</button>
+  </div>
+    <div id="demo"> </div>
+  
+    <script>
+        function viewDiv(){
+        document.getElementById("demo").style.display = "block";
+        };
+    </script>
+  
+    <script>
+  
+  function Calculate(){
+  var total=0;
+  var freqarr= [];
+  var alpfreq=[];
+  var text = document.getElementById('cipher-text').value;
+  for(var i=0;i<text.length;++i){
+    var letter=text.charAt(i).toUpperCase();
+    var letters = /[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ]/;
+    if (!letters.test(letter))
+    continue;
+    if (letter =="Е" || letter == "Ё")
+            letter = "Е,Ё";
+    if (letter =="ь" || letter == "ъ")
+            letter = "ь,ъ";
+    if (undefined === freqarr[letter])
+            freqarr[letter]=1;
+    else
+            freqarr[letter]=freqarr[letter]+1;
+    total++;
+    alpfreq[i]=letter;
+  }
+  
+  var tuples = [];
+  for (var key in freqarr) tuples.push([key, freqarr[key]]);
+  
+  tuples.sort(function(a, b) {
+    a = a[1];
+    b = b[1];
+    return a < b ? 1 : (a > b ? -1 : 0);
+  });
+  
+  var rec=[];
+  for (var i = 0; i<tuples.length;i++)
+  {    var key = tuples[i][0];
+    var value = tuples[i][1];
+   var s =value/total;
+   rec[i]=[key,s];
+  }
+  var items = '';
+  for(var i=0;i<rec.length;i++){
+  items += rec[i][0]+ ' - ' + rec[i][1] + ' ';
+  items+='<\p>'}
+  document.getElementById('demo').innerHTML = items;
+  }
+  
+    </script>
+  
+  </div>
+  <script src="/js/atbash.js"></script>
+
+<%- include ('../_partial/_footer'); -%>

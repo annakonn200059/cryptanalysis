@@ -1,0 +1,32 @@
+<%- include('../_partial/_header'); -%>
+
+<h1 align="center"><b>Пробуем расшифровать</b></h1>
+<br>
+<div align="justify" style = "text-indent: 25px;font-size: 20px;">
+    <p>На данной странице реализуется автоматическая расшифровка шифров простой замены: Цезаря и Атбаш</p>
+    <p>Введите зашифрованное собщение, чтобы получить расшифрованное</p>
+</div>
+
+<div id="body1">
+    <select id="lang" name="lang" style="top:287px; left:337px;">
+        <option value="rus">Русский</option>
+        <option value="eng">Английский</option>
+    </select>
+  
+    <div style="display: flex; justify-content: center; align-content: space-between; align-items: center; flex-direction: column;">
+    <div id="header2">Шифротекст</div>
+
+    <textarea id="cipher-text" style="width: 800px;height:250px"placeholder="Введите шифротекст текст"></textarea>
+</div>
+    <div class="box-with-actions">
+    <section class="actions">
+        <button class="butArea" id="decrypt-btn_wtf">Расшифровать</button>
+  </section>
+    </div>
+  </div>
+
+
+  <script src="/js/decypher.js"></script>
+
+
+<%- include ('../_partial/_footer'); -%>
