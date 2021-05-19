@@ -87,9 +87,6 @@ border-radius: 15px
 }
 
 #lang{
-position: absolute;
-left:451px;
-top:481px;
 text-align: left;
 color: #777;
 font-size: 12px;
@@ -171,7 +168,38 @@ outline: none;
     position: relative;
     text-align: center;
     width: 1000px;
-          margin: 20px auto;
-          border: 3px double #524f49;
-          border-radius: 15px;
+    margin: 20px auto;
+    border: 3px double #524f49;
+    border-radius: 15px;
+    white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;  
   }
+
+
+
+  .containerForCiphers{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+
+  .typeOfCipher.active{
+    background-position: 0 0;
+    color: red;
+}
+
+.hide{
+  display:none;
+}
+
+.show{
+  display:block;
+}
+
+.blockDelete{
+  position:absolute;top:-5px;right:10px;font-size:25px;color:#000;opacity:.5;font-weight:700;border:none;background-color:transparent;cursor:pointer
+}

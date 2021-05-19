@@ -3,25 +3,42 @@
 <h1 align="center"><b>Пробуем расшифровать</b></h1>
 <br>
 <div align="justify" style = "text-indent: 25px;font-size: 20px;">
-    <p>На данной странице реализуется автоматическая расшифровка шифров простой замены: Цезаря и Атбаш</p>
-    <p>Введите зашифрованное собщение, чтобы получить расшифрованное</p>
+    <p>На данной странице реализуется автоматическая расшифровка шифров простой замены: Цезаря и Атбаш.</p>
+    <p>Введите зашифрованное собщение, чтобы получить расшифрованное.</p>
+    <p><b>Перед расшифровкой убедитесь, что выбран предполагаемый шифр из тех, что ниже, а также в том, что шифротекст содержит или все пробелы между словами, или ни одного.</b></p>
+</div>
+
+<div class="container2">
+    <div class="containerForCiphers">
+        <button class = "butArea typeOfCipher" id = "CaesarAndAtbash">
+            Цезарь и Атбаш
+        </button>
+        <button class = "butArea typeOfCipher" id= "SimpleSubst">
+            Простой замены
+        </button>
+    </div>
 </div>
 
 <div id="body1">
-    <select id="lang" name="lang" style="top:287px; left:337px;">
-        <option value="rus">Русский</option>
-        <option value="eng">Английский</option>
-    </select>
   
     <div style="display: flex; justify-content: center; align-content: space-between; align-items: center; flex-direction: column;">
     <div id="header2">Шифротекст</div>
-
-    <textarea id="cipher-text" style="width: 800px;height:250px"placeholder="Введите шифротекст текст"></textarea>
+    <div>
+        <select id="lang" name="lang" style="position: relative; top:20px ;display: block;">
+            <option value="rus">Русский</option>
+            <option value="eng">Английский</option>
+        </select>
+        <textarea id="cipher-text" style="width: 800px;height:250px"placeholder="Введите шифротекст текст"></textarea>
+    </div>
 </div>
+
+
     <div class="box-with-actions">
-    <section class="actions">
-        <button class="butArea" id="decrypt-btn_wtf">Расшифровать</button>
-  </section>
+
+        <section class="actions" id ="actionsId">
+            <button class="butArea" id="decrypt-btn_wtf">Расшифровать</button>
+        </section>
+
     </div>
   </div>
 
